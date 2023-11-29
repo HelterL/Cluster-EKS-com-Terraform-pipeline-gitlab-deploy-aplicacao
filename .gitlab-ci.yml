@@ -21,3 +21,4 @@ criar_images:
     - docker login -u ${USER_DOCKER} -p ${PASSWORD_DOCKER}
     - docker build -t helterpitanga/appmicro1:$VERSION app/.
     - docker push helterpitanga/appmicro1:$VERSION
+    - echo "teste"
