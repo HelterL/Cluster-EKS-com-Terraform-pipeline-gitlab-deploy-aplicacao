@@ -18,7 +18,7 @@ criar_images:
    stage: build
    image: helterpitanga/eksconfigure:1.0
    script:
+    - systemctl start docker
     - docker login -u ${USER_DOCKER} -p ${PASSWORD_DOCKER}
     - docker build -t helterpitanga/appmicro1:$VERSION app/.
     - docker push helterpitanga/appmicro1:$VERSION
-    - echo "teste"
