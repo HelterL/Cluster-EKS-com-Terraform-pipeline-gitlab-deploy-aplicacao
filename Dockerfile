@@ -2,6 +2,7 @@ FROM ubuntu:jammy
 
 RUN apt update && apt upgrade -y && \
     apt install unzip curl gpg -y && \
+    curl -fsSL https://get.docker.com/ | sh && \
     curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip" && \
     unzip awscliv2.zip && \
     ./aws/install && \
