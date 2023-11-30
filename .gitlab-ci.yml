@@ -14,7 +14,7 @@ criar_images:
    before_script:
     - docker login -u ${DOCKER_REGISTRY_USER} -p ${DOCKER_REGISTRY_PASS} docker.io
    script:
-    - docker build -t helterpitanga/appmicro1:$VERSION app/*
+    - docker build -t helterpitanga/appmicro1:$VERSION ./app
     - docker push helterpitanga/appmicro1:$VERSION
 
 deploy_EKS:
