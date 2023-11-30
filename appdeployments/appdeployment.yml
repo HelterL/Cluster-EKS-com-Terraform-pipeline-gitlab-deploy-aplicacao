@@ -14,8 +14,15 @@ spec:
       labels:
         app: app
     spec:
-    containers:
+      containers:
       - name: app
-        image: helterpitanga/appmicro1:1.0 
+        image: helterpitanga/appmicro1:1.0
         ports:
         - containerPort: 80
+        resources:
+         requests:
+          memory: 256Mi
+          cpu: 250m
+         limits:
+          memory: 256Mi
+          cpu: 250m
