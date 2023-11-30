@@ -20,7 +20,7 @@ criar_images:
      - connect_EKS
    image: helterpitanga/eksconfigure:1.0
    script:
-    - sudo dockerd
+    - systemctl status docker
     - docker login -u ${USER_DOCKER} -p ${PASSWORD_DOCKER}
     - docker build -t helterpitanga/appmicro1:$VERSION app/.
     - docker push helterpitanga/appmicro1:$VERSION
