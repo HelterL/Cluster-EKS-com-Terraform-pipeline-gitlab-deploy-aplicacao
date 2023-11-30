@@ -1,7 +1,7 @@
 FROM nginx:latest
 
-ARG CACHEBUST=1
-
 COPY ./* /usr/share/nginx/html/
+
+ARG CACHEBUST=1
 
 EXPOSE 80

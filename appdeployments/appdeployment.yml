@@ -1,11 +1,11 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: app1.0
+  name: app5.0
   labels:
     app: app1
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: app1
@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: app1
-        image: helterpitanga/appmicro1:1.0
+        image: helterpitanga/appmicro1:5.0
         ports:
         - containerPort: 80
         resources:
