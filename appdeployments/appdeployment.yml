@@ -13,8 +13,8 @@ spec:
     metadata:
       labels:
         app: app
-  spec:
-      containers:
+    spec:
+    containers:
       - name: app
         image: helterpitanga/appmicro1:1.0 
         ports:
