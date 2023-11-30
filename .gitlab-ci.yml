@@ -1,5 +1,4 @@
 stages:
-  - ConnectEKS
   - build
   - deploy
 
@@ -7,18 +6,8 @@ variables:
   VERSION: "1.0"
   DOCKER_TLS_CERTDIR: "/certs"
 
-connect_EKS:
-  stage: "ConnectEKS"
-  image: helterpitanga/eksconfigure:1.0
-  script: 
-    - export AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
-    - export AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
-    - aws eks --region us-east-1 update-kubeconfig --name ekscluster
-
 criar_images:
    stage: build
-   needs:
-     - connect_EKS
    image: docker:24.0.5
    services:
     - docker:24.0.5-dind
@@ -27,3 +16,14 @@ criar_images:
    script:
     - docker build -t helterpitanga/appmicro1:$VERSION app/.
     - docker push helterpitanga/appmicro1:$VERSION
+
+deploy_EKS:
+  stage: deploy
+  image: helterpitanga/eksconfigure:1.0
+  needs:
+    - criar_images
+  script: 
+    - export AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
+    - export AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
+    - aws eks --region us-east-1 update-kubeconfig --name ekscluster
+    - kubectl apply -f appdeployments/appdeployment.yml
