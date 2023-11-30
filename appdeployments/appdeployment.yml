@@ -3,19 +3,19 @@ kind: Deployment
 metadata:
   name: app-deployment
   labels:
-    app: app
+    app: app1
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: app
+      app: app1
   template:
     metadata:
       labels:
-        app: app
+        app: app1
     spec:
       containers:
-      - name: app
+      - name: app1
         image: helterpitanga/appmicro1:1.0
         ports:
         - containerPort: 80
