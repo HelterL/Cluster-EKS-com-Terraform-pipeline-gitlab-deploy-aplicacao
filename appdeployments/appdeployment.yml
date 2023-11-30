@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: app1
-        image: helterpitanga/appmicro1:4.0
+        image: helterpitanga/nginxmundo:1.0
         ports:
         - containerPort: 80
         resources:

@@ -1,2 +1,5 @@
 FROM nginx:latest
-COPY * /usr/share/nginx/html/
+
+COPY ./mundo-invertido/ /usr/share/nginx/html/
+
+EXPOSE 80
