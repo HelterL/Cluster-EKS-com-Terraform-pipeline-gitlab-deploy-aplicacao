@@ -23,7 +23,7 @@ criar_images:
    services:
     - docker:24.0.5-dind
    before_script:
-    - echo "$DOCKER_REGISTRY_PASS" | docker login $DOCKER_REGISTRY --username $DOCKER_REGISTRY_USER --password-stdin
+    - echo "$DOCKER_REGISTRY_PASS" | docker login $DOCKER_REGISTRY --username $DOCKER_REGISTRY_USER --password-stdin docker.io
    script:
     - docker build -t helterpitanga/appmicro1:$VERSION app/.
     - docker push helterpitanga/appmicro1:$VERSION
