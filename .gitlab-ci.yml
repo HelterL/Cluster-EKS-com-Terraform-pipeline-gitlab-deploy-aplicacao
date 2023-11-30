@@ -3,7 +3,7 @@ stages:
   - deploy
 
 variables:
-  VERSION: "3.0"
+  VERSION: "3.1"
   DOCKER_TLS_CERTDIR: "/certs"
 
 criar_images:
