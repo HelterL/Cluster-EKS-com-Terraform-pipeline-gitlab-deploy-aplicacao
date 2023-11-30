@@ -13,8 +13,8 @@ criar_images:
    before_script:
     - docker login -u ${DOCKER_REGISTRY_USER} -p ${DOCKER_REGISTRY_PASS} docker.io
    script:
-    - docker build --no-cache -t helterpitanga/appmicro1:5.5 app/.
-    - docker push helterpitanga/appmicro1:5.5
+    - docker build --no-cache -t helterpitanga/appmicro1:6.0 app/.
+    - docker push helterpitanga/appmicro1:6.0
 
 deploy_EKS:
   stage: deploy
