@@ -27,3 +27,4 @@ deploy_EKS:
     - export AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
     - aws eks --region us-east-1 update-kubeconfig --name ekscluster
     - kubectl apply -f appdeployments/appdeployment.yml
+    - kubectl apply -f appdeployments/applb.yml
