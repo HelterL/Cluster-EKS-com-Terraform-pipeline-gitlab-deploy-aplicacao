@@ -5,6 +5,7 @@ stages:
 
 variables:
   VERSION: "1.0"
+  DOCKER_TLS_CERTDIR: "/certs"
 
 connect_EKS:
   stage: "ConnectEKS"
@@ -18,8 +19,11 @@ criar_images:
    stage: build
    needs:
      - connect_EKS
-   image: docker:latest
+   image: docker:24.0.5
+   services:
+    - docker:24.0.5-dind
+   before_script:
+    - echo "$DOCKER_REGISTRY_PASS" | docker login $DOCKER_REGISTRY --username $DOCKER_REGISTRY_USER --password-stdin
    script:
-    - docker login -u ${USER_DOCKER} -p ${PASSWORD_DOCKER}
     - docker build -t helterpitanga/appmicro1:$VERSION app/.
     - docker push helterpitanga/appmicro1:$VERSION
