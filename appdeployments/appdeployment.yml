@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: app1
-        image: helterpitanga/appmicro1:3.1
+        image: helterpitanga/nginxteste:teste
         ports:
         - containerPort: 80
         resources:
