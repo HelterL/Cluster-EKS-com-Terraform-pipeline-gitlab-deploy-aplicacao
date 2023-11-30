@@ -18,9 +18,8 @@ criar_images:
    stage: build
    needs:
      - connect_EKS
-   image: helterpitanga/eksconfigure:1.0
+   image: docker:latest
    script:
-    - service docker start
     - docker login -u ${USER_DOCKER} -p ${PASSWORD_DOCKER}
     - docker build -t helterpitanga/appmicro1:$VERSION app/.
     - docker push helterpitanga/appmicro1:$VERSION
