@@ -14,7 +14,7 @@ criar_images:
    before_script:
     - docker login -u ${DOCKER_REGISTRY_USER} -p ${DOCKER_REGISTRY_PASS} docker.io
    script:
-    - docker system prune -a -force
+    - docker system prune -a --force
     - docker build --no-cache -t helterpitanga/appmicro2:$VERSION app2/.
     - docker push helterpitanga/appmicro2:$VERSION
 
