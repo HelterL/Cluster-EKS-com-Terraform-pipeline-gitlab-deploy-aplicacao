@@ -1,6 +1,6 @@
-FROM nginx:latest
+FROM webdevops/php-apache:latest
 
-COPY ./* /usr/share/nginx/html/
+COPY ./* /usr/local/apache2/htdocs/
 
 ARG CACHEBUST=1
 

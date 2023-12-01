@@ -5,7 +5,7 @@ metadata:
   labels:
     app: app2
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: app2
@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: app2
-        image: helterpitanga/appmicro2:8.0
+        image: helterpitanga/appmicro2:2.0
         ports:
         - containerPort: 80
         resources:
