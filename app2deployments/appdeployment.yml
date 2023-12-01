@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
       - name: app2
-        image: helterpitanga/appmicro2:3.0
+        image: helterpitanga/appmicro2:4.0
         ports:
         - containerPort: 80
         resources:
