@@ -27,8 +27,8 @@ deploy_EKS:
     - export AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
     - export AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
     - aws eks --region us-east-1 update-kubeconfig --name ekscluster
-    - kubectl delete deploy app5.5 mysql
     - kubectl delete svc lb-app mysql
+    - kubectl delete deploy app2 mysql
     - kubectl apply -f app2deployments/appdeployment.yml
     - kubectl apply -f app2deployments/mysql.yml
     - kubectl apply -f app2deployments/applb.yml
