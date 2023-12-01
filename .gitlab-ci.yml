@@ -4,6 +4,7 @@ stages:
 
 variables:
   DOCKER_TLS_CERTDIR: "/certs"
+  VERSION: "4.0"
 
 criar_images:
    stage: build
@@ -13,8 +14,8 @@ criar_images:
    before_script:
     - docker login -u ${DOCKER_REGISTRY_USER} -p ${DOCKER_REGISTRY_PASS} docker.io
    script:
-    - docker build --no-cache -t helterpitanga/appmicro2:3.0 app2/.
-    - docker push helterpitanga/appmicro2:3.0
+    - docker build --no-cache -t helterpitanga/appmicro2:$VERSION app2/.
+    - docker push helterpitanga/appmicro2:$VERSION
 
 deploy_EKS:
   stage: deploy
