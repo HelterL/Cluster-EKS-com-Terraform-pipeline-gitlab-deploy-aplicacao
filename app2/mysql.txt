@@ -1,0 +1,7 @@
+CREATE TABLE usuarios (
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    nome VARCHAR(220),
+    email VARCHAR(220),
+    created DATETIME,
+    modified DATETIME NULL
+);
