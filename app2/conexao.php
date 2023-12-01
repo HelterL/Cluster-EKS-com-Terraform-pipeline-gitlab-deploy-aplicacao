@@ -1,7 +1,7 @@
 <?php
 $servidor = "mysql";
 $usuario = "root";
-$senha = "senha123";
+$senha = "password";
 $dbname = "meubanco";
 
 
