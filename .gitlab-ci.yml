@@ -4,7 +4,7 @@ stages:
 
 variables:
   DOCKER_TLS_CERTDIR: "/certs"
-  VERSION: "2.0"
+  VERSION: "3.0"
 
 criar_images:
    stage: build
@@ -28,7 +28,7 @@ deploy_EKS:
     - export AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
     - aws eks --region us-east-1 update-kubeconfig --name ekscluster
     - kubectl delete svc lb-app mysql || true
-    - kubectl delete deploy app2 mysql ||
+    - kubectl delete deploy app2 mysql || true
     - kubectl apply -f app2deployments/appdeployment.yml
     - kubectl apply -f app2deployments/mysql.yml
     - kubectl apply -f app2deployments/applb.yml
