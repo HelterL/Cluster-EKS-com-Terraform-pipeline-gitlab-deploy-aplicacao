@@ -21,3 +21,4 @@ if(mysqli_insert_id($conn)){
     $_SESSION['msg'] = "<p style='color:red;'>Usuário não foi cadastrado com sucesso</p>"
     header("Location: index.php");
 }
+?>
