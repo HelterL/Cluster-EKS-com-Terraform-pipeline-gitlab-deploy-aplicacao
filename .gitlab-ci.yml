@@ -4,7 +4,7 @@ stages:
 
 variables:
   DOCKER_TLS_CERTDIR: "/certs"
-  VERSION: "4.0"
+  VERSION: "1.0"
 
 criar_images:
    stage: build
