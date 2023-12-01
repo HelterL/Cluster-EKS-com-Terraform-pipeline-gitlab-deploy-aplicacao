@@ -4,7 +4,7 @@ stages:
 
 variables:
   DOCKER_TLS_CERTDIR: "/certs"
-  VERSION: "5.0"
+  VERSION: "1.0"
 
 criar_images:
    stage: build
@@ -14,6 +14,7 @@ criar_images:
    before_script:
     - docker login -u ${DOCKER_REGISTRY_USER} -p ${DOCKER_REGISTRY_PASS} docker.io
    script:
+    - docker system prune -a -force
     - docker build --no-cache -t helterpitanga/appmicro2:$VERSION app2/.
     - docker push helterpitanga/appmicro2:$VERSION
 
@@ -26,6 +27,8 @@ deploy_EKS:
     - export AWS_ACCESS_KEY_ID=${AWS_ACCESS_KEY_ID}
     - export AWS_SECRET_ACCESS_KEY=${AWS_SECRET_ACCESS_KEY}
     - aws eks --region us-east-1 update-kubeconfig --name ekscluster
+    - kubectl delete deploy app5.5 mysql
+    - kubectl delete svc lb-app mysql
     - kubectl apply -f app2deployments/appdeployment.yml
     - kubectl apply -f app2deployments/mysql.yml
     - kubectl apply -f app2deployments/applb.yml
