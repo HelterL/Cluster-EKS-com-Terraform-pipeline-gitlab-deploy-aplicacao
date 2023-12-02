@@ -36,19 +36,19 @@ Crie um bucket S3 com o nome de sua preferência e troque o nome dentro do arqui
 Após isso, utilize o comando terraform init para inicializar a configuração
 
 ```bash
-Terraform init
+terraform init
 ```
 
 Utilize o comando terraform plan para verificar se há algum erro na criação dos recursos
 
 ```bash
-Terraform plan -out plan.tfplan
+terraform plan -out plan.tfplan
 ```
 
 e por fim terraform apply plan.tfplan para criar os recursos
 
 ```bash
-Terraform apply plan.tfplan
+terraform apply plan.tfplan
 ```
 
 Crie as variáveis de ambiente no gitlab, após isso basta fazer um commit para rodar a pipeline.
