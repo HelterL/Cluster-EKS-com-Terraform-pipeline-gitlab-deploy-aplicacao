@@ -61,7 +61,7 @@ Para acessar o cluster utilize o seguinte comando:
 aws eks --region us-east-1 update-kubeconfig --name ekscluster
 ```
 
-Comando para verificar os pods
+Comando para verificar os pods criados
 
 ```bash
 kubectl get pods
@@ -107,7 +107,7 @@ kubectl get svc
 
 Para verificar se tudo ocorreu como esperado, após esse comando será mostrado o DNS do lb-app que é loadbalancer do nosso aplicativo, para acessar basta copiar o DNS e colar no seu navegador.
 
-Adicione um usuário e verifique dentro do banco de dados, utilizando os comando para se conectar e por fim utilize o comando para verificar se deu certo
+Adicione um usuário no seu navegador e se conecte novamente ao pod mysql, entre no banco de dados e execute o seguinte comando para verificar se a adição ao banco foi feita com sucesso.
 
 ```bash
 SELECT * FROM usuarios;
@@ -137,10 +137,10 @@ kubectl delete svc lb-app mysql
 kubectl delete deploy app2 mysql
 ```
 
-Por fim, destrua os recursos cridados na AWS
+Por fim, destrua os recursos criados na AWS
 
 ```bash
 terraform destroy
 ```
-Após esse comando confirme digitando "yes"
+Após esse comando, confirme digitando "yes"
 
