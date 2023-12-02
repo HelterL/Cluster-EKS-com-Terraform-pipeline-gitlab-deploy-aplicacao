@@ -1,4 +1,4 @@
-# Criação de um cluster AWS EKS kubernetes com gitlab terraform
+# Criação de um cluster AWS EKS kubernetes com Terraform e Pipeline com gitlab 
 
 ## O que utilizei?
 
@@ -25,9 +25,9 @@
 - AWS_SECRET_ACCESS_KEY (Chave aws secret access key)
 - DOCKER_REGISTRY_USER (email ou usuário do docker hub)
 - DOCKER_REGISTRY_PASS (senha do docker hub)
-- Kubectl instalado
+- Kubectl instalado localmente
 
-## Rodando a pipeline
+## Provisionando o ambiente com Terraform
 
 Certifique-se de já ter instalado a AWS-CLI e a mesma configurada com suas chaves
 
@@ -55,7 +55,7 @@ Crie as variáveis de ambiente no gitlab, após isso basta fazer um commit para 
 
 ## Acesso ao cluster kubernetes
 
-Para acessar o cluster utilize o seguinte comando
+Para acessar o cluster utilize o seguinte comando:
 
 ```bash
 aws eks --region us-east-1 update-kubeconfig --name ekscluster
@@ -99,6 +99,8 @@ CREATE TABLE usuarios (
 );
 ```
 
+Comando para mostrar os serviços em execução
+
 ```bash
 kubectl get svc
 ```
@@ -134,3 +136,11 @@ kubectl delete svc lb-app mysql
 ```bash
 kubectl delete deploy app2 mysql
 ```
+
+Por fim, destrua os recursos cridados na AWS
+
+```bash
+terraform destroy
+```
+Após esse comando confirme digitando "yes"
+
