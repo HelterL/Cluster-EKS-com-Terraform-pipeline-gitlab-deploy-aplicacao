@@ -13,7 +13,8 @@
 ## Como funciona?
 
 - O Terraform provisiona o cluster EKS e toda a rede necessária
-- Gitlab automatiza a criação do container docker, push para o docker hub e finalmente faz o deploy do container dentro do cluster EKS
+- Criação de uma imagem docker com AWS CLI instalado junto com kubectl
+- Gitlab utiliza imagem docker in docker para automatizar a criação do container docker da aplicação, push para o docker hub e finalmente faz o deploy do container dentro do cluster EKS
 - Eles trabalham juntos em um pipeline no Gitlab CI.
 
 ## Pré-requisitos
